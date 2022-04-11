@@ -1,0 +1,11 @@
+.*
+*.tgz
+Cargo.lock
+Cargo.toml
+cjs/package.json
+es/package.json
+module
+pkg
+src
+target
+tests

@@ -1,0 +1,33 @@
+{
+  "name": "@cryoem-uoft/snappy-wasm",
+  "version": "0.1.0",
+  "description": "snappy compression/decompression for Node.js and browsers powered by WebAssembly",
+  "main": "./cjs/snappy.js",
+  "module": "./es/snappy.js",
+  "exports": {
+    "require": "./cjs/snappy.js",
+    "import": "./es/snappy.js"
+  },
+  "types": "./es/snappy.d.ts",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "build": "npm run build:es && npm run build:cjs",
+    "build:es": "wasm-pack build --target web -d es --release",
+    "build:cjs": "wasm-pack build --target nodejs -d cjs --release",
+    "test": "wasm-pack test --chrome --headless"
+  },
+  "keywords": [
+    "snappy",
+    "browser",
+    "node",
+    "webassembly",
+    "wasm",
+    "compression"
+  ],
+  "author": "Structura Biotechnology <info@structura.bio>",
+  "license": "UNLICENSED"
+}
