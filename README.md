@@ -1,50 +1,61 @@
 <div align="center">
 
-  <h1><code>wasm-pack-template</code></h1>
+  <h1><code>snappy-wasm</code></h1>
 
-  <strong>A template for kick starting a Rust and WebAssembly project using <a href="https://github.com/rustwasm/wasm-pack">wasm-pack</a>.</strong>
-
-  <p>
-    <a href="https://travis-ci.org/rustwasm/wasm-pack-template"><img src="https://img.shields.io/travis/rustwasm/wasm-pack-template.svg?style=flat-square" alt="Build Status" /></a>
-  </p>
-
-  <h3>
-    <a href="https://rustwasm.github.io/docs/wasm-pack/tutorials/npm-browser-packages/index.html">Tutorial</a>
-    <span> | </span>
-    <a href="https://discordapp.com/channels/442252698964721669/443151097398296587">Chat</a>
-  </h3>
+  <strong>JavaScript compression/decompression with [snappy](https://github.com/google/snappy) for browsers and Node.js, powered by WebAssembly.</strong>
 
   <sub>Built with 🦀🕸 by <a href="https://rustwasm.github.io/">The Rust and WebAssembly Working Group</a></sub>
 </div>
 
-## About
+## Installation
 
-[**📚 Read this template tutorial! 📚**][template-docs]
-
-This template is designed for compiling Rust libraries into WebAssembly and
-publishing the resulting package to NPM.
-
-Be sure to check out [other `wasm-pack` tutorials online][tutorials] for other
-templates and usages of `wasm-pack`.
-
-[tutorials]: https://rustwasm.github.io/docs/wasm-pack/tutorials/index.html
-[template-docs]: https://rustwasm.github.io/docs/wasm-pack/tutorials/npm-browser-packages/index.html
+```
+npm i snappy-wasm
+```
 
 ## 🚴 Usage
 
-### 🐑 Use `cargo generate` to Clone this Template
+### Browser / ES Modules
 
-[Learn more about `cargo generate` here.](https://github.com/ashleygwilliams/cargo-generate)
+
+```js
+import init from 'snappy-wasm'
+
+// ...
+const snappy = await init()
+```
+
+Note that additional configuration may be required to support top-level await in your environment.
+
+### Node.js
+
+```js
+const snappy = require('snappy')
 
 ```
-cargo generate --git https://github.com/rustwasm/wasm-pack-template.git --name my-project
-cd my-project
+
+### Compress data
+
+```js
+const data = "data"
+const compressed = snappy.compress(data)
 ```
 
-### 🛠️ Build with `wasm-pack build`
+This returns a `Uint8Array` instance
+
+### Decompress data
+
+```js
+const decompressed = snappy.decompress(compressed)
+```
+
+Use `snappy.compress_raw(data)` and `snappy.decompress_raw(compressed)` to
+compress/decompress raw data (provided and returned as `Uint8Array`)
+
+### 🛠️ Build with `wasm-pack build` (via npm script)
 
 ```
-wasm-pack build
+npm run build
 ```
 
 ### 🔬 Test in Headless Browsers with `wasm-pack test`
@@ -53,10 +64,11 @@ wasm-pack build
 wasm-pack test --headless --firefox
 ```
 
-### 🎁 Publish to NPM with `wasm-pack publish`
+### 🎁 Publish to NPM
 
 ```
-wasm-pack publish
+npm run build
+npm publish
 ```
 
 ## 🔋 Batteries Included
@@ -67,3 +79,11 @@ wasm-pack publish
   for logging panic messages to the developer console.
 * [`wee_alloc`](https://github.com/rustwasm/wee_alloc), an allocator optimized
   for small code size.
+
+## 👾 Development
+
+Install the following
+
+* [Node.js 16+](https://nodejs.org/en/)
+* [Rust 2018](https://www.rust-lang.org/tools/install)
+* [wasm-pack](https://rustwasm.github.io/wasm-pack/installer/)

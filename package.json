@@ -1,7 +1,7 @@
 {
-  "name": "@cryoem-uoft/snappy-wasm",
+  "name": "snappy-wasm",
   "version": "0.1.0",
-  "description": "snappy compression/decompression for Node.js and browsers powered by WebAssembly",
+  "description": "snappy compression/decompression for browsers and Node.js, powered by WebAssembly",
   "main": "./cjs/snappy.js",
   "module": "./es/snappy.js",
   "exports": {
@@ -28,6 +28,6 @@
     "wasm",
     "compression"
   ],
-  "author": "Structura Biotechnology <info@structura.bio>",
-  "license": "UNLICENSED"
+  "author": "Nick Frasser <nick@nfrasser.com>",
+  "license": "MIT"
 }
