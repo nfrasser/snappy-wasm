@@ -4,7 +4,10 @@
 
   <strong>JavaScript compression/decompression with [snappy](https://github.com/google/snappy) for browsers and Node.js, powered by WebAssembly.</strong>
 
+  <a href="https://www.npmjs.com/package/snappy-wasm"><img src="https://badgen.net/npm/v/snappy-wasm"></a>
+
   <sub>Built with 🦀🕸 by <a href="https://rustwasm.github.io/">The Rust and WebAssembly Working Group</a></sub>
+
 </div>
 
 ## Installation
