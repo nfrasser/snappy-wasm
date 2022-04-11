@@ -30,9 +30,10 @@ Note that additional configuration may be required to support top-level await in
 ### Node.js
 
 ```js
-const snappy = require('snappy')
-
+const snappy = require('snappy-wasm')
 ```
+
+For use exclusively in Node.js, the [`snappy`](https://www.npmjs.com/package/snappy) package may provide better performance.
 
 ### Compress data
 
